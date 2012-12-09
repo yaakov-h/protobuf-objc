@@ -476,7 +476,7 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
 
     printer->Print(
       "@private\n"
-      "  $classname$* result;\n"
+      "  $classname$* _builderResult;\n"
       "}\n",
       "classname", ClassName(descriptor_));
 
