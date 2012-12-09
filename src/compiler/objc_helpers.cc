@@ -27,7 +27,6 @@
 #include "google/protobuf/objectivec-descriptor.pb.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace objectivec {
-  namespace {
     const string& FieldName(const FieldDescriptor* field) {
       // Groups are hacky:  The name of the field is just the lower-cased name
       // of the group type.  In ObjectiveC, though, we would like to retain the original
@@ -38,7 +37,6 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
         return field->name();
       }
     }
-  }
 
 
     string UnderscoresToCapitalizedCamelCase(const string& input) {
@@ -198,7 +196,7 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
       basename += file->name().substr(last_slash + 1);
     }
 
-    return FilenameToCamelCase(StripProto(basename));
+    return StripProto(basename);
   }
 
 
@@ -293,7 +291,7 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
   string EnumValueName(const EnumValueDescriptor* descriptor) {
     return
       ClassName(descriptor->type()) +
-      UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
+      SafeName(descriptor->name());
   }
 
 

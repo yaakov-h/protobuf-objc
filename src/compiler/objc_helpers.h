@@ -26,6 +26,8 @@ namespace google {
 namespace protobuf {
 namespace compiler {
 namespace objectivec {
+	
+const string& FieldName(const FieldDescriptor* field);
 
 // Converts the field's name to camel-case, e.g. "foo_bar_baz" becomes
 // "fooBarBaz" or "FooBarBaz", respectively.

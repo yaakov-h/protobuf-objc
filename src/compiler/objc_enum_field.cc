@@ -38,8 +38,8 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
         string type = ClassName(descriptor->enum_type());
 
         (*variables)["classname"]             = ClassName(descriptor->containing_type());
-        (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
-        (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
+        (*variables)["name"]                  = FieldName(descriptor);
+        (*variables)["capitalized_name"]      = FieldName(descriptor);
         (*variables)["list_name"]             = UnderscoresToCamelCase(descriptor) + "Array";
         (*variables)["number"] = SimpleItoa(descriptor->number());
         (*variables)["type"] = type;
